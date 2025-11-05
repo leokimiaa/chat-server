@@ -3,9 +3,10 @@ const http = require('http');
 const { Server } = require('socket.io');
 const cors = require('cors');
 const { createClient } = require('@supabase/supabase-js');
+require('dotenv').config();
 
-const supabaseUrl = 'https://yxzskaycstjhgwiiftmi.supabase.co';
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inl4enNrYXljc3RqaGd3aWlmdG1pIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTQ5MDE1NzAsImV4cCI6MjA3MDQ3NzU3MH0.lKdaFJ4ACVzgK1kaPDBnyFuyu2EmCSUG1TrWZRCQVxs';
+const supabaseUrl = process.env.SUPABASE_URL;
+const supabaseKey = process.env.SUPABASE_ANON_KEY;
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 const app = express();
